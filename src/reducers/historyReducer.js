@@ -1,4 +1,4 @@
-import getSortedRequests from '../selectors/requests';
+import { getSortedRequests } from '../selectors/history';
 
 export default (state = [], action) => {
     switch(action.type) {

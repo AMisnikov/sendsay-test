@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
+import { selectScreenMode } from '../../selectors/viewSettings';
 import Header from '../../components/Header/Header';
 import Console from '../../components/Console/Console';
 
@@ -14,7 +15,7 @@ export const ConsolePage = ({ isFullScreen }) => (
 
 
 const mapStateToProps = state => ({
-    isFullScreen: state.viewSettings.isFullScreen
+    isFullScreen: selectScreenMode(state)
 });
 
 export default connect(mapStateToProps)(ConsolePage);

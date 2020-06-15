@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectUser } from '../../selectors/auth';
 
 export const User = ({ user, className }) => (
     <div className={className ? `user ${className}` : 'user'}>
@@ -15,7 +16,7 @@ export const User = ({ user, className }) => (
 );
 
 const mapStateToProps = state => ({
-    user: state.auth.user
+    user: selectUser(state)
 });
 
 export default connect(mapStateToProps)(User);

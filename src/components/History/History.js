@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import Request from '../Request/Request';
-import getSortedRequests from '../../selectors/requests';
+import { selectRequests } from '../../selectors/history';
 import { startClearHistory } from '../../actions/historyActions';
 
 export const History = ({ history, clearHistory }) => {
@@ -81,7 +81,7 @@ export const History = ({ history, clearHistory }) => {
 };
 
 const mapStateToProps = state => ({
-    history: getSortedRequests(state.history)
+    history: selectRequests(state)
 
 });
 

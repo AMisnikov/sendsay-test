@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { isUserAuth } from '../selectors/auth';
 
 export const PublicRoute = ({ isAuth, children, ...otherProps }) => (
     <Route {...otherProps}>
@@ -16,7 +17,7 @@ export const PublicRoute = ({ isAuth, children, ...otherProps }) => (
 
 
 const mapStateToProps = state => ({
-    isAuth: !!state.auth.user
+    isAuth: isUserAuth(state)
 });
 
 export default connect(mapStateToProps)(PublicRoute);

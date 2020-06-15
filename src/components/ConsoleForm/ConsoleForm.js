@@ -4,6 +4,8 @@ import beautify from 'js-beautify';
 import { sendRequest } from '../../actions/historyActions';
 import { updateFields } from '../../actions/consoleFormActions';
 import { saveSettings } from '../../actions/viewSettingsActions';
+import { selectFormData } from '../../selectors/consoleForm';
+import { selectFieldWidth } from '../../selectors/viewSettings';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import Loader from '../Loader/Loader';
 
@@ -133,8 +135,8 @@ export const ConsoleForm = ({ formData, sendRequest, updateFields, saveSettings,
 };
 
 const mapStateToProps = state => ({
-    formData: state.consoleForm,
-    fieldWidth: state.viewSettings.requestFieldWidth
+    formData: selectFormData(state),
+    fieldWidth: selectFieldWidth(state)
 });
 
 const mapDispatchToProps = dispatch => ({

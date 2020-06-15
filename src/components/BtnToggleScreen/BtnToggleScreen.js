@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleScreenMode } from '../../actions/viewSettingsActions';
+import { selectScreenMode } from '../../selectors/viewSettings';
 import SvgIcon from '../SvgIcon/SvgIcon';
 
 export const BtnToggleScreen = ({ isFullScreen, toggleScreenMode,  className }) => {
@@ -27,7 +28,7 @@ export const BtnToggleScreen = ({ isFullScreen, toggleScreenMode,  className }) 
 };
 
 const mapStateToProps = state => ({
-    isFullScreen: state.viewSettings.isFullScreen
+    isFullScreen: selectScreenMode(state)
 });
 
 const mapDispatchToProps = dispatch => ({
